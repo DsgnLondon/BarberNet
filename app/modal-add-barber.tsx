@@ -1,5 +1,5 @@
 import React, { useMemo, useState, useEffect } from 'react';
-import { SafeAreaView, View, Text, StyleSheet, ScrollView, Pressable, Image, TextInput, Platform, Alert } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, ScrollView, Pressable, Image, TextInput, Alert } from 'react-native';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { Feather } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';

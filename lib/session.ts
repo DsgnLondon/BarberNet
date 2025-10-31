@@ -10,30 +10,29 @@ type SecureStoreModule = {
   deleteItemAsync: (k: string) => Promise<void>;
 };
 
-function getSecureStore(): SecureStoreModule | null {
+async function getSecureStore(): Promise<SecureStoreModule | null> {
   try {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const mod = require('expo-secure-store');
-    return mod;
+    const mod = await import('expo-secure-store');
+    return (mod as unknown) as SecureStoreModule;
   } catch {
     return null;
   }
 }
 
 export async function markEntered() {
-  const s = getSecureStore();
+  const s = await getSecureStore();
   if (!s) return;
   await s.setItemAsync(KEY, '1');
 }
 
 export async function clearEntered() {
-  const s = getSecureStore();
+  const s = await getSecureStore();
   if (!s) return;
   await s.deleteItemAsync(KEY);
 }
 
 export async function hasEntered(): Promise<boolean> {
-  const s = getSecureStore();
+  const s = await getSecureStore();
   if (!s) return false;
   const v = await s.getItemAsync(KEY);
   return v === '1';

@@ -11,16 +11,7 @@ type Region =
   | 'Edinburgh'
   | 'Birmingham';
 
-interface ShopListing {
-  id: string;
-  name: string;
-  city: string;
-  area: string;
-  priceGBP: number;
-  chairs: number;
-  description: string;
-  image?: any;
-}
+ 
 
 const REGIONS: Region[] = ['All Regions', 'London', 'Manchester', 'Edinburgh', 'Birmingham'];
 
@@ -51,7 +42,7 @@ export default function ShopsScreen() {
       const first = shops[0];
       router.push((`/modal-shop-detail?id=${first.id}`) as any);
     }
-  }, [autoOpen, didOpen, shops]);
+  }, [autoOpen, didOpen, shops, router]);
 
   const filtered = useMemo(() => {
     if (region === 'All Regions') return shops;

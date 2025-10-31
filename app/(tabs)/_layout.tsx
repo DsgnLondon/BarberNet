@@ -25,7 +25,7 @@ export default function TabsLayout() {
         name="home"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color, size, focused }) => (
+          tabBarIcon: ({ color, size, focused }: { color: string; size: number; focused: boolean }) => (
             <Ionicons name={focused ? 'home' : 'home-outline'} size={22} color={color} />
           ),
         }}
@@ -34,28 +34,28 @@ export default function TabsLayout() {
         name="jobs"
         options={{
           title: 'Jobs',
-          tabBarIcon: ({ color }) => <Feather name="briefcase" size={22} color={color} />,
+          tabBarIcon: ({ color }: { color: string }) => <Feather name="briefcase" size={22} color={color} />,
         }}
       />
       <Tabs.Screen
         name="barbers"
         options={{
           title: 'Barbers',
-          tabBarIcon: ({ color }) => <Feather name="users" size={22} color={color} />,
+          tabBarIcon: ({ color }: { color: string }) => <Feather name="users" size={22} color={color} />,
         }}
       />
       <Tabs.Screen
         name="shops"
         options={{
           title: 'Shops',
-          tabBarIcon: ({ color }) => <Feather name="shopping-bag" size={22} color={color} />,
+          tabBarIcon: ({ color }: { color: string }) => <Feather name="shopping-bag" size={22} color={color} />,
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
           title: 'Profile',
-          tabBarIcon: ({ color }) => <Feather name="user" size={22} color={color} />,
+          tabBarIcon: ({ color }: { color: string }) => <Feather name="user" size={22} color={color} />,
         }}
       />
     </Tabs>

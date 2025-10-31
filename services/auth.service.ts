@@ -8,9 +8,6 @@ WebBrowser.maybeCompleteAuthSession();
 
 export type AuthState = { user: User | null; loading: boolean };
 
-// Using a lightweight singleton Google auth request per app session
-let googleInit: ReturnType<typeof Google.useAuthRequest> | null = null;
-
 export function useGoogleRequest() {
   const extra = (Constants?.expoConfig as any)?.extra || {};
   const google = (extra.oauth || {}).google || {};
@@ -22,7 +19,6 @@ export function useGoogleRequest() {
     selectAccount: true,
   };
   const [request, response, promptAsync] = Google.useAuthRequest(cfg);
-  googleInit = [request, response, promptAsync] as any;
   return { request, response, promptAsync };
 }
 

@@ -27,7 +27,7 @@ export default function BarbersScreen() {
       const first = items[0];
       router.push((`/modal-barber-detail?id=${first.id}`) as any);
     }
-  }, [autoOpen, didOpen, items]);
+  }, [autoOpen, didOpen, items, router]);
 
   const filtered = useMemo(() => {
     return items.filter(b => region === 'All Regions' || b.city === region);

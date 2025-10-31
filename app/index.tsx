@@ -11,7 +11,7 @@ export default function Welcome() {
       const seen = await hasEntered();
       if (seen) router.replace('/(tabs)/home');
     })();
-  }, []);
+  }, [router]);
 
   const goIn = async () => { await markEntered(); router.replace('/(tabs)/home'); };
   const onGoogle = async () => goIn();

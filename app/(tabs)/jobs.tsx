@@ -49,7 +49,7 @@ export default function JobsScreen() {
       setDidOpen(true);
       router.push({ pathname: '/modal-job-detail', params: { id: items[0].id } });
     }
-  }, [autoOpen, didOpen, items]);
+  }, [autoOpen, didOpen, items, router]);
 
   const filtered = useMemo(() => {
     return items.filter(j => {

@@ -132,7 +132,7 @@ export default function ModalPostJob() {
       }
       Alert.alert('Posted', `${payload.shopName} • ${payload.type}`);
       router.back();
-    } catch (e) {
+    } catch {
       Alert.alert('Error', 'Failed to post job. Please try again.');
     } finally {
       setLoading(false);
